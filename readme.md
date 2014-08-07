@@ -1,6 +1,6 @@
 ### Tropo CDR Parsing Tool
 
-Tool to process Aspect's ustage reports in XML format
+Tool to process Aspect's usage reports in XML format
 
 #### Usage
 
