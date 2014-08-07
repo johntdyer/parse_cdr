@@ -5,7 +5,11 @@ Tool to process Aspect's usage reports in XML format
 
 #### Releases
 
-* [v0.1](https://github.com/johntdyer/parse_cdr/releases)
+####### Downloads
+* [v0.2](https://github.com/johntdyer/parse_cdr/releases/download/0.2/parse_cdr)
+  * Default infile should be example.xml
+
+* [v0.1](https://github.com/johntdyer/parse_cdr/releases/download/0.1/parse_cdr)
   * Initial release
 
 #### Usage
