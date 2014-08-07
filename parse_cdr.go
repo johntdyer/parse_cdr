@@ -1,9 +1,7 @@
 package main
 
 // http://stackoverflow.com/questions/24634114/slowdown-when-parsing-multiple-files-in-parallel-using-goroutines
-
 //http://ernestmicklei.com/2013/10/10/a-case-of-sizing-and-draining-buffered-go-channels/
-// An example streaming XML parser.
 
 import (
 	"encoding/xml"
@@ -17,17 +15,7 @@ import (
 	"sync"
 )
 
-//var inputFile = flag.String("infile", "MonthlyDetailReport-173504-201407.xml", "~/Downloads")
-
-var inputFile = flag.String("infile", "test.xml", "~/Downloads")
-
-// <session applicationId='465725' applicationName='Number Holder - DO NOT REMOVE' startTime='23:59:58' startDate='2014-07-31' type='CCXML' direction='outbound' platformRate='0.0000' transferCharges='0.0' transportCharges='0.237' platformCharges='0.000' totalCharges='0.237' calledId='+18312723824' callerId='' sessionId='9688f838a127cfbdf0490e38b0b68129' partitionPlatformId='593' durationMinutes='16.90' bridged='false' connectionId='0' connectionNumber='0' recordingCharges='0.000' conferencingCharges='0.000' payphoneCharges='0.000'>
-//     <url/>
-//     <outboundDialString dialString='18312723824' prefix='1' description='UNITED STATES'/>
-// </session>
-// <session applicationId='465725' applicationName='Number Holder - DO NOT REMOVE' startTime='23:59:59' startDate='2014-07-31' type='CCXML' direction='inbound' platformRate='0.0000' transferCharges='0.0' transportCharges='0.004' platformCharges='0.000' totalCharges='0.004' calledId='8882062082' callerId='3057925311' sessionId='1fe200da7a525523a2566c45ba68e2e8' partitionPlatformId='593' durationMinutes='0.30' bridged='false' connectionId='0' connectionNumber='0' recordingCharges='0.000' conferencingCharges='0.000' payphoneCharges='0.000'>
-//     <url/>
-// </session>
+var inputFile = flag.String("infile", "example.xml", ".")
 
 func FloatToString(input_num float64) string {
 	return strconv.FormatFloat(input_num, 'f', 2, 64)
@@ -42,11 +30,6 @@ type PrefixList struct {
 	Prefix map[string]float64
 }
 
-// func NewPrefixList() *PrefixList {
-// 	return &PrefixList{pr: new(sync.RWMutex), hm: make(map[string]string)}
-// }
-
-//<outboundDialString description="JAPAN MOBILE" dialString="819017775577" prefix="8190"/>
 type Session struct {
 	Duration            string             `xml:"durationMinutes,attr"`
 	Transport           string             `xml:"transportCharges,attr"`
